@@ -1,5 +1,9 @@
 # Prerequisites
 *.d
+build/
+.vscode/
+CMakeLists.txt
+main.cpp
 
 # Compiled Object files
 *.slo
