@@ -2,14 +2,14 @@
 
 ## description
 
-This is a library for the c++ language. Table Node is literally a 2D array, but on linked lists in all directions in 2D space (top, right, bottom, down)
+This is a library for the c++ language. Table Node is literally a 2D array, but on linked lists in all directions in 2D space (top, right, bottom, left)
 
 ## constructor
 
-# Table_Node<*your type*> name_table(*default value of your type*);
+### Table_Node<*your type*> name_table(*default value of your type*);
 creates an empty table
 
-# Table_Node<*your type*> name_table(*x*, *y*, *default value of your type*);
+### Table_Node<*your type*> name_table(*x*, *y*, *default value of your type*);
 creates a table already with x columns and y rows
 
 ## functions
