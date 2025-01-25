@@ -26,3 +26,8 @@ creates a table already with x columns and y rows
 - **print_table()** - outputs the entire table by principle: [x,y] data : direction_top direction_right direction_bottom direction_left
 - **set_data(const size_t& x, const size_t& y, const T& data)** - sets the data at x and y
 - **get_data_(const size_t& x, const size_t& y)** - gets the data at x and y
+
+## Updates
+
+- [v1.1] *aba7fc7* **adding delete functions**
+- [v1.0] *a27ce1e* **first version**
