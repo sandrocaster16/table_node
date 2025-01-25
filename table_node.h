@@ -203,6 +203,144 @@ public:
         ++size_x_;
     }
 
+
+    void delete_top_border(){
+        if(empty()){
+            std::cerr<<"Error: table is empty\n";
+            return;
+        }
+
+        Node* t = zero_point_;
+        Node* t_old;
+        zero_point_ = zero_point_->bottom_;
+
+        for(int x=0; x<size_x_; ++x){
+            t_old = t;
+            t_old->bottom_->top_ = nullptr;
+            t = t->right_;
+
+            t_old->data_ = nullptr;
+            t_old->top_ = nullptr;
+            t_old->right_ = nullptr;
+            t_old->bottom_ = nullptr;
+            t_old->left_ = nullptr;
+
+            delete t_old->data_;
+            delete t_old;
+        }
+
+        --size_y_;
+
+        if(empty()){
+            size_x_ = 0;
+        }
+    }
+
+    void delete_right_border(){
+        if(empty()){
+            std::cerr<<"Error: table is empty\n";
+            return;
+        }
+
+        Node* t = zero_point_;
+        Node* t_old;
+
+        for(int x=0; x<size_x_-1; ++x){
+            t = t->right_;
+        }
+
+        for(int y=0; y<size_y_-1; ++y){
+            t_old = t;
+            t = t->bottom_;
+            t_old->left_->right_ = nullptr;
+
+            t_old->data_ = nullptr;
+            t_old->top_ = nullptr;
+            t_old->right_ = nullptr;
+            t_old->bottom_ = nullptr;
+            t_old->left_ = nullptr;
+
+            delete t_old->data_;
+            delete t_old;
+        }
+
+        --size_x_;
+
+        if(empty() || size_x_ == 0){
+            zero_point_ = nullptr;
+            size_y_ = 0;
+        }
+    }
+
+    void delete_bottom_border(){
+        if(empty()){
+            std::cerr<<"Error: table is empty\n";
+            return;
+        }
+
+        Node* t = zero_point_;
+        Node* t_old;
+
+        for(int y=0; y<size_y_-1; ++y){
+            t = t->bottom_;
+        }
+
+        for(int x=0; x<size_x_-1; ++x){
+            t_old = t;
+            t_old->bottom_->top_ = nullptr;
+            t = t->right_;
+
+            t_old->data_ = nullptr;
+            t_old->top_ = nullptr;
+            t_old->right_ = nullptr;
+            t_old->bottom_ = nullptr;
+            t_old->left_ = nullptr;
+
+            delete t_old->data_;
+            delete t_old;
+        }
+
+        --size_y_;
+
+        if(empty() || size_y_ == 0){
+            zero_point_ = nullptr;
+            size_x_ = 0;
+        }
+    }
+
+    void delete_left_border(){
+        if(empty()){
+            std::cerr<<"Error: table is empty\n";
+            return;
+        }
+
+        Node* t = zero_point_;
+        Node* t_old;
+        zero_point_ = zero_point_->right_;
+
+        for(int y=0; y<size_y_; ++y){
+            t_old = t;
+            t_old->right_->left_ = nullptr;
+            t = t->bottom_;
+
+            t_old->data_ = nullptr;
+            t_old->top_ = nullptr;
+            t_old->right_ = nullptr;
+            t_old->bottom_ = nullptr;
+            t_old->left_ = nullptr;
+
+            delete t_old->data_;
+            delete t_old;
+        }
+
+        --size_x_;
+
+        if(empty()){
+            size_y_ = 0;
+        }
+    }
+
+
     void print_table(){
         Node* t_old = zero_point_;
         Node* t;
