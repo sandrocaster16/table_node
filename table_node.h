@@ -20,6 +20,12 @@ private:
     size_t size_y_;
     T* default_value_;
 
+    void create_first(){
+        zero_point_ = new Node();
+        ++size_x_;
+        ++size_y_;
+    }
+
 public:
     Table_Node(T default_value) : 
         zero_point_(nullptr), 
@@ -35,7 +41,7 @@ public:
         default_value_(new T(default_value))
     {
         for(size_t _x=0; _x<x; ++_x){
-            add_left_border();
+            add_right_border();
         }
         for(size_t _y=0; _y<y-1; ++_y){
             add_bottom_border();
@@ -73,12 +79,6 @@ public:
 
     inline bool empty(){
         return (zero_point_ == nullptr);
-    }
-    
-    void create_first(){
-        zero_point_ = new Node();
-        ++size_x_;
-        ++size_y_;
     }
 
     void add_top_border(){
@@ -220,7 +220,7 @@ public:
         }
     }
 
-    void set_data(size_t x, size_t y, const T& data){
+    void set_data(const size_t& x, const size_t& y, const T& data){
         if(x < 0 || x >= size_x_ || y < 0 || y >= size_y_){
             std::cerr << "Error: Out of bounds\n";
             return;
@@ -239,7 +239,7 @@ public:
         t->data_ = new T(data);
     }
 
-    const T& get_data_(size_t x, size_t y){
+    const T& get_data_(const size_t& x, const size_t& y){
         if(x < 0 || x >= size_x_ || y < 0 || y >= size_y_){
             std::cerr << "Error: Out of bounds\n";
             return *default_value_;
