@@ -5,7 +5,7 @@ template<typename T>
 class Table_Node{
 private:
     struct Node{
-        T* data_;
+        T* data_; 
 
         Node* top_;
         Node* right_;
