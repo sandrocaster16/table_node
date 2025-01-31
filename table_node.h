@@ -81,6 +81,14 @@ public:
         return (zero_point_ == nullptr);
     }
 
+    const T& get_width(){
+        return size_x_;
+    }
+
+    const T& get_height(){
+        return size_y_;
+    }
+
     void add_top_border(){
         if(empty()){
             create_first();
