@@ -31,5 +31,6 @@ creates a table already with x columns and y rows
 
 ## Updates
 
+- [v1.2] *1741b04* **adding get_width and get_height functions**
 - [v1.1] *aba7fc7* **adding delete functions**
 - [v1.0] *a27ce1e* **first version**
