@@ -14,7 +14,9 @@ creates a table already with x columns and y rows
 
 ## functions
 
-- **bool empty()** - true if empty, false if full
+- **empty()** - true if empty, false if full
+- **get_width** - return size_x (width table)
+- **get_height** - return size_y (height table)
 - **add_top_border()** - adds a row up
 - **add_right_border()** - adds a row to the right
 - **add_bottom_border()** - adds a row down
